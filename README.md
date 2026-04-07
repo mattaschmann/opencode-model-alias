@@ -1,8 +1,12 @@
 # opencode-model-alias
 
+[![npm version](https://img.shields.io/npm/v/opencode-model-alias)](https://www.npmjs.com/package/opencode-model-alias)
+[![License: MIT](https://img.shields.io/npm/l/opencode-model-alias)](LICENSE)
+[![Test Coverage](https://img.shields.io/badge/coverage-89%25-brightgreen)](tests)
+
 > **Note:** This project is not built by the OpenCode team and is not affiliated with OpenCode in any way.
 
-OpenCode plugin that allows users to define model aliases for consistent use across machines.
+[OpenCode](https://opencode.ai) plugin that allows users to define model aliases for consistent use across machines.
 
 ## Installation
 
