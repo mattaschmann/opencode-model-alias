@@ -1,12 +1,19 @@
 {
   "name": "opencode-model-alias",
-  "version": "0.0.0",
-  "description": "OpenCode plugin for model aliases",
+  "version": "1.0.0",
+  "description": "OpenCode plugin that allows users to define model aliases for consistent use across machines.",
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
     "typecheck": "tsc --noEmit"
   },
+  "author": "Matt Aschmann <matt.aschmann@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maschmann/opencode-model-alias"
+  },
+  "keywords": ["opencode", "plugin", "model", "alias"],
   "dependencies": {
     "@opencode-ai/plugin": "^1.0.0"
   },

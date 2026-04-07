@@ -4,7 +4,19 @@
 
 OpenCode plugin that allows users to define model aliases for consistent use across machines.
 
-## Problem
+## Installation
+
+Add the plugin to your OpenCode config:
+
+```json
+{
+  "plugin": ["opencode-model-alias"]
+}
+```
+
+OpenCode automatically installs npm plugins using Bun at startup.
+
+## Usage
 
 When sharing custom skills/agents/commands between computers that use different models, you currently need to maintain separate versions of those configurations. This plugin solves that by letting you set model aliases that resolve to specific models on each machine.
 
