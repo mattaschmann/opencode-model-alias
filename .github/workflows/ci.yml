@@ -23,3 +23,33 @@ jobs:
       - run: npm run typecheck
 
       - run: npm test
+
+      - name: Generate coverage badge data
+        run: |
+          node <<'NODE'
+          const fs = require("fs");
+          const summary = JSON.parse(fs.readFileSync("coverage/coverage-summary.json", "utf8"));
+          const pct = Math.round(summary.total.statements.pct * 100) / 100;
+          const color = pct >= 90 ? "brightgreen" : pct >= 80 ? "green" : pct >= 70 ? "yellow" : "orange";
+          const badge = {
+            schemaVersion: 1,
+            label: "coverage",
+            message: `${pct}%`,
+            color,
+          };
+          fs.writeFileSync("coverage-badge.json", JSON.stringify(badge));
+          NODE
+
+      - name: Prepare coverage badge artifact
+        run: |
+          mkdir -p badge-public
+          mv coverage-badge.json badge-public/coverage.json
+
+      - name: Publish coverage badge
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: badges
+          publish_dir: badge-public
+          commit_message: Update coverage badge
