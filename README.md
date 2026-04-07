@@ -1,5 +1,7 @@
 # opencode-model-alias
 
+> **Note:** This project is not built by the OpenCode team and is not affiliated with OpenCode in any way.
+
 OpenCode plugin that allows users to define model aliases for consistent use across machines.
 
 ## Problem
