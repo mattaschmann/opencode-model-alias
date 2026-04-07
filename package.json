@@ -12,7 +12,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mattschmann/opencode-model-alias"
+    "url": "https://github.com/mattaschmann/opencode-model-alias"
   },
   "keywords": ["opencode", "plugin", "model", "alias"],
   "dependencies": {
