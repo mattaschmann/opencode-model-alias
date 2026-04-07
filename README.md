@@ -16,9 +16,49 @@ Add the plugin to your OpenCode config:
 
 OpenCode automatically installs npm plugins using Bun at startup.
 
-## Usage
+## Why This Plugin?
 
-When sharing custom skills/agents/commands between computers that use different models, you currently need to maintain separate versions of those configurations. This plugin solves that by letting you set model aliases that resolve to specific models on each machine.
+When you create custom skills, agents, or commands in OpenCode, you can specify which model to use. However, sharing these configurations across multiple computers is problematic because each machine may use different models.
+
+### The Problem
+
+Imagine you have a custom skill that uses GPT-4o Mini for cost efficiency:
+
+```json
+{
+  "skill": {
+    "my-skill": {
+      "model": "openai/gpt-4o-mini"
+    }
+  }
+}
+```
+
+If you share this skill with a colleague who uses Anthropic, or if you switch to a different provider on another computer, you need to manually update the model in your config. This becomes tedious and error-prone as you accumulate more skills.
+
+### The Solution
+
+With model aliases, you can use a consistent identifier across machines:
+
+1. **In your shared config:** Use the alias
+   ```json
+   {
+     "skill": {
+       "my-skill": {
+         "model": "cheap"
+       }
+     }
+   }
+   ```
+
+2. **On each machine:** Define the alias in `~/.config/opencode/model-aliases.json`
+   ```json
+   {
+     "cheap": "openai/gpt-4o-mini"
+   }
+   ```
+
+Now your skill configuration is portable, and each computer maps "cheap" to whatever model that machine prefers.
 
 ## Usage
 
