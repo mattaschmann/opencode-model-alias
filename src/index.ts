@@ -63,6 +63,8 @@ function resolveConfigAliases(config: Config): void {
   }
 }
 
+export { ensureConfigFile, readAliases, writeAliases, resolveAlias, resolveConfigAliases, handleAliasCommand };
+
 function handleAliasCommand(args: string): string {
   const parts = args.trim().split(/\s+/);
   const subcommand = parts[0] || "help";
