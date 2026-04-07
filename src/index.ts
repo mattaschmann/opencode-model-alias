@@ -1,4 +1,4 @@
-import type { Config, Hooks, Plugin } from "@opencode-ai/plugin";
+import type { Config, Hooks, Plugin, PluginModule } from "@opencode-ai/plugin";
 import { homedir } from "os";
 import { join } from "path";
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from "fs";
@@ -127,7 +127,7 @@ Examples:
   return "Unknown subcommand. Use 'alias help' for usage information.";
 }
 
-const aliasPlugin: Plugin = async ({ client }) => {
+export const aliasPlugin: Plugin = async ({ client }) => {
   return {
     config: async (opencodeConfig: Config) => {
       opencodeConfig.command ??= {};
@@ -160,4 +160,11 @@ const aliasPlugin: Plugin = async ({ client }) => {
   };
 };
 
-export default aliasPlugin;
+export const server = aliasPlugin;
+
+const pluginModule: PluginModule = {
+  id: "opencode-model-alias",
+  server,
+};
+
+export default pluginModule;

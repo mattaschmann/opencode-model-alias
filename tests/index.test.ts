@@ -30,13 +30,15 @@ import fs from "fs";
 const mockFs = (fs as any).__mockFs;
 const ALIAS_FILE = path.join(homedir(), ".config", "opencode", "model-aliases.json");
 
-import {
+import pluginModule, {
   ensureConfigFile,
   readAliases,
   writeAliases,
   resolveAlias,
   resolveConfigAliases,
   handleAliasCommand,
+  aliasPlugin,
+  server,
 } from "../src/index";
 
 describe("resolveAlias", () => {
@@ -193,5 +195,17 @@ describe("resolveConfigAliases", () => {
     };
     resolveConfigAliases(config);
     expect(config.agent.myagent.model).toBe("openai/gpt-4o");
+  });
+});
+
+describe("plugin module export", () => {
+  test("default export exposes server hook", () => {
+    expect(pluginModule).toBeDefined();
+    expect(typeof pluginModule.server).toBe("function");
+    expect(pluginModule.id).toBe("opencode-model-alias");
+  });
+
+  test("server export matches aliasPlugin", () => {
+    expect(server).toBe(aliasPlugin);
   });
 });
