@@ -9,4 +9,5 @@ module.exports = {
     ],
   },
   collectCoverageFrom: ["src/**/*.ts"],
+  coverageReporters: ["text", "json-summary", "lcov"],
 };
