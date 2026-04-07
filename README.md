@@ -26,19 +26,19 @@ When you create custom skills, agents, or commands in OpenCode, you can specify 
 
 ### The Problem
 
-Imagine you have a custom skill that uses GPT-4o Mini for cost efficiency:
+Imagine you have a custom command that uses GPT-4o Mini for cost efficiency:
 
 ```json
 {
-  "skill": {
-    "my-skill": {
+  "command": {
+    "my-command": {
       "model": "openai/gpt-4o-mini"
     }
   }
 }
 ```
 
-If you share this skill with a colleague who uses Anthropic, or if you switch to a different provider on another computer, you need to manually update the model in your config. This becomes tedious and error-prone as you accumulate more skills.
+If you share this command with a colleague who uses Anthropic, or if you switch to a different provider on another computer, you need to manually update the model in your config. This becomes tedious and error-prone as you accumulate more commands.
 
 ### The Solution
 
@@ -47,8 +47,8 @@ With model aliases, you can use a consistent identifier across machines:
 1. **In your shared config:** Use the alias
    ```json
    {
-     "skill": {
-       "my-skill": {
+     "command": {
+       "my-command": {
          "model": "cheap"
        }
      }
@@ -62,7 +62,7 @@ With model aliases, you can use a consistent identifier across machines:
    }
    ```
 
-Now your skill configuration is portable, and each computer maps "cheap" to whatever model that machine prefers.
+Now your command configuration is portable, and each computer maps "cheap" to whatever model that machine prefers.
 
 ## Usage
 
