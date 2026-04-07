@@ -1,7 +1,6 @@
 # opencode-model-alias
 
 [![CI](https://github.com/mattaschmann/opencode-model-alias/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/mattaschmann/opencode-model-alias/actions/workflows/ci.yml)
-[![Coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/mattaschmann/opencode-model-alias/badges/coverage.json)](https://github.com/mattaschmann/opencode-model-alias/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/opencode-model-alias)](https://www.npmjs.com/package/opencode-model-alias)
 [![License: MIT](https://img.shields.io/npm/l/opencode-model-alias)](LICENSE)
 
