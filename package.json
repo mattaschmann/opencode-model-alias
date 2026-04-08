@@ -1,6 +1,6 @@
 {
   "name": "opencode-model-alias",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "OpenCode plugin that allows users to define model aliases for consistent use across machines.",
   "main": "src/index.ts",
   "type": "module",
@@ -14,7 +14,12 @@
     "type": "git",
     "url": "https://github.com/mattaschmann/opencode-model-alias"
   },
-  "keywords": ["opencode", "plugin", "model", "alias"],
+  "keywords": [
+    "opencode",
+    "plugin",
+    "model",
+    "alias"
+  ],
   "dependencies": {
     "@opencode-ai/plugin": "^1.0.0"
   },
