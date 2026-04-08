@@ -83,7 +83,14 @@ Manage model aliases directly from OpenCode:
 
 # Show help
 /alias help
+
+# Show available models in correct format
+!opencode models
 ```
+
+Tip: type `!opencode models` in the TUI to list the currently available models in the correct provider/model format.
+
+> **Important:** Restart OpenCode after adding, updating, or deleting aliases so the new mappings load into your session.
 
 ### Using Aliases
 

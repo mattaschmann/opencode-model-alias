@@ -122,7 +122,9 @@ describe("handleAliasCommand", () => {
 
   test("set - success", () => {
     const result = handleAliasCommand("set cheap openai/gpt-4o-mini");
-    expect(result).toBe("Alias 'cheap' set to 'openai/gpt-4o-mini'");
+    expect(result).toBe(
+      "Alias 'cheap' set to 'openai/gpt-4o-mini'. Please restart OpenCode for the change to take effect."
+    );
     expect(readAliases()).toEqual({ cheap: "openai/gpt-4o-mini" });
   });
 
@@ -139,7 +141,7 @@ describe("handleAliasCommand", () => {
   test("delete - success", () => {
     mockFs[ALIAS_FILE] = '{"cheap": "openai/gpt-4o-mini"}';
     const result = handleAliasCommand("delete cheap");
-    expect(result).toBe("Alias 'cheap' deleted");
+    expect(result).toBe("Alias 'cheap' deleted. Please restart OpenCode for the change to take effect.");
     expect(readAliases()).toEqual({});
   });
 

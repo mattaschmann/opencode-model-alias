@@ -81,7 +81,11 @@ Subcommands:
 Examples:
   alias list
   alias set cheap openai/gpt-4o-mini
-  alias delete cheap`;
+  alias delete cheap
+
+Tip: type '!opencode models' in the TUI to list available models in the correct format.
+
+Note: Restart OpenCode after adding, updating, or deleting aliases so the changes take effect.`;
   }
 
   if (subcommand === "list") {
@@ -107,7 +111,7 @@ Examples:
     const aliases = readAliases();
     aliases[key] = value;
     writeAliases(aliases);
-    return `Alias '${key}' set to '${value}'`;
+    return `Alias '${key}' set to '${value}'. Please restart OpenCode for the change to take effect.`;
   }
 
   if (subcommand === "delete") {
@@ -121,7 +125,7 @@ Examples:
     }
     delete aliases[key];
     writeAliases(aliases);
-    return `Alias '${key}' deleted`;
+    return `Alias '${key}' deleted. Please restart OpenCode for the change to take effect.`;
   }
 
   return "Unknown subcommand. Use 'alias help' for usage information.";
