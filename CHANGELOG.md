@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.2] - 2026-04-08
+
+### Changed
+- Normalize `repository.url` in `package.json` to match npm expectations and avoid publish-time rewrites.
+
+### CI
+- Enable provenance statements and explicit public access when publishing via trusted publisher for more reliable npm releases.
+
 ## [1.0.1]
 
 ### Added
