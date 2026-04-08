@@ -1,0 +1,29 @@
+---
+name: Publish to npm
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  publish:
+    needs: ci
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - run: npm ci
+
+      - run: npm run typecheck
+
+      # Trusted publisher via id-token permission; no npm token input required
+      - uses: JS-DevTools/npm-publish@v4
