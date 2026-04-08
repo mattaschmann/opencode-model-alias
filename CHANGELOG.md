@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.5] - 2026-04-08
+
+### Changed
+- `/alias` help text now highlights the `!opencode models` command and reminds users to restart OpenCode after editing aliases so changes load into the session.
+
+### Docs
+- README now documents how to list available models and reiterates the need to restart OpenCode after alias updates.
+
 ## [1.0.3] - 2026-04-08
 
 ### Fixed
