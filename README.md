@@ -45,6 +45,7 @@ If you share this command with a colleague who uses Anthropic, or if you switch 
 With model aliases, you can use a consistent identifier across machines:
 
 1. **In your shared config:** Use the alias
+
    ```json
    {
      "command": {
@@ -84,7 +85,7 @@ Manage model aliases directly from OpenCode:
 /alias help
 ```
 
-### Using Aliases in Config
+### Using Aliases
 
 In your OpenCode config (e.g., `~/.config/opencode/opencode.json`):
 
@@ -101,6 +102,16 @@ In your OpenCode config (e.g., `~/.config/opencode/opencode.json`):
     }
   }
 }
+```
+
+Or in markdown format:
+
+```markdown
+---
+description: Some agent
+mode: subagent
+model: cheap
+---
 ```
 
 The plugin automatically resolves these aliases by looking up the model in your alias file.
@@ -125,5 +136,6 @@ Example `model-aliases.json`:
 - [GitHub Issue #3439](https://github.com/anomalyco/opencode/issues/3439)
 
 ## Credit/Inspirations
+
 - https://gist.github.com/krystofrezac/7f16ba252279f889eb750a866b257a1d
 - https://github.com/toninho09/opencode-usage
