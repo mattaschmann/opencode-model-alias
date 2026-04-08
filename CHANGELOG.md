@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.3] - 2026-04-08
+
+### Fixed
+- Add LICENSE file to fix "license not found" badge in README
+
 ## [1.0.2] - 2026-04-08
 
 ### Changed
