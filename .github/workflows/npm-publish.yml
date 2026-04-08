@@ -31,3 +31,6 @@ jobs:
 
       # Trusted publisher via id-token permission; no npm token input required
       - uses: JS-DevTools/npm-publish@v4
+        with:
+          provenance: true
+          access: public
