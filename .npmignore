@@ -1,0 +1,14 @@
+.git/
+.github/
+.tasks/
+coverage/
+tests/
+node_modules/
+*.test.ts
+jest.config.cjs
+tsconfig.test.json
+opencode.json
+AGENTS.md
+.nvmrc
+.gitignore
+package-lock.json
