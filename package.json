@@ -1,6 +1,7 @@
 {
   "name": "opencode-model-alias",
   "version": "1.0.5",
+  "private": true,
   "description": "OpenCode plugin that allows users to define model aliases for consistent use across machines.",
   "main": "src/index.ts",
   "type": "module",

@@ -142,23 +142,10 @@ export const aliasPlugin: Plugin = async ({ client }) => {
 
       resolveConfigAliases(opencodeConfig);
     },
-    "command.execute.before": async (input) => {
+    "command.execute.before": async (input, output: any) => {
       if (input.command === "alias") {
         const result = handleAliasCommand(input.arguments);
-        await client.session.prompt({
-          path: { id: input.sessionID },
-          body: {
-            noReply: true,
-            parts: [
-              {
-                type: "text",
-                text: result,
-                ignored: true,
-              },
-            ],
-          },
-        });
-        throw new Error("__ALIAS_COMMAND_HANDLED__");
+        output.parts.splice(0, output.parts.length, { type: "text", text: result, ignored: true });
       }
     },
   };

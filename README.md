@@ -1,7 +1,5 @@
 # opencode-model-alias
 
-[![CI](https://github.com/mattaschmann/opencode-model-alias/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/mattaschmann/opencode-model-alias/actions/workflows/ci.yml)
-[![npm version](https://img.shields.io/npm/v/opencode-model-alias)](https://www.npmjs.com/package/opencode-model-alias)
 [![License: MIT](https://img.shields.io/github/license/mattaschmann/opencode-model-alias)](LICENSE)
 
 > **Note:** This project is not built by the OpenCode team and is not affiliated with OpenCode in any way.
@@ -10,15 +8,19 @@
 
 ## Installation
 
-Add the plugin to your OpenCode config:
+Clone the repo to a local workspace:
+
+```sh
+git clone https://github.com/mattaschmann/opencode-model-alias.git ~/workspace/opencode-model-alias
+```
+
+Then add the plugin to your OpenCode config (`opencode.jsonc`):
 
 ```json
 {
-  "plugin": ["opencode-model-alias"]
+  "plugin": ["~/workspace/opencode-model-alias"]
 }
 ```
-
-OpenCode automatically installs npm plugins using Bun at startup.
 
 ## Why This Plugin?
 
