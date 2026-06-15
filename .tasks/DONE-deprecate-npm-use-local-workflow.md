@@ -22,7 +22,7 @@ by opencode-ping. Remove the published npm package and disable CI/CD publishing.
 - [x] **Update AGENTS.md** — if it mentions npm install or the npm package name
   as the install path, update to reflect the local workspace approach.
   - 2026-06-15: done — AGENTS.md has no npm install references; no changes needed
-- [ ] **Remove from npm** — run the following (requires being logged in as the
+- [x] **Remove from npm** — run the following (requires being logged in as the
   package owner):
   ```sh
   # Packages < 72 hours old can be hard-unpublished; older ones must be deprecated first
