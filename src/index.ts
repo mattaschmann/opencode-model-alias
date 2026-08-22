@@ -1,10 +1,11 @@
 import type { Config, Plugin, PluginModule } from "@opencode-ai/plugin";
 import { join } from "path";
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from "fs";
-import { xdgConfig } from "xdg-basedir";
+import { homedir } from "os";
 
+const xdgConfig = process.env.XDG_CONFIG_HOME ?? join(homedir(), ".config");
 const CONFIG_DIR =
-  process.env.OPENCODE_CONFIG_DIR ?? join(xdgConfig!, "opencode");
+  process.env.OPENCODE_CONFIG_DIR ?? join(xdgConfig, "opencode");
 const ALIAS_FILE = join(CONFIG_DIR, "model-aliases.json");
 
 function ensureConfigFile(): void {

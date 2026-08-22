@@ -21,9 +21,6 @@
     "model",
     "alias"
   ],
-  "dependencies": {
-    "xdg-basedir": "^5.1.0"
-  },
   "devDependencies": {
     "@opencode-ai/plugin": "^1.17.7",
     "@types/jest": "^30.0.0",
