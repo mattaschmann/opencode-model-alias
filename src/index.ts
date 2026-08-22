@@ -1,12 +1,15 @@
-import type { Config, Hooks, Plugin, PluginModule } from "@opencode-ai/plugin";
-import { homedir } from "os";
+import type { Config, Plugin, PluginModule } from "@opencode-ai/plugin";
 import { join } from "path";
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from "fs";
+import { homedir } from "os";
 
-const ALIAS_FILE = join(homedir(), ".config", "opencode", "model-aliases.json");
+const xdgConfig = process.env.XDG_CONFIG_HOME ?? join(homedir(), ".config");
+const CONFIG_DIR =
+  process.env.OPENCODE_CONFIG_DIR ?? join(xdgConfig, "opencode");
+const ALIAS_FILE = join(CONFIG_DIR, "model-aliases.json");
 
 function ensureConfigFile(): void {
-  const dir = join(homedir(), ".config", "opencode");
+  const dir = CONFIG_DIR;
   if (!existsSync(dir)) {
     mkdirSync(dir, { recursive: true });
   }
@@ -29,7 +32,10 @@ function writeAliases(aliases: Record<string, string>): void {
   writeFileSync(ALIAS_FILE, JSON.stringify(aliases, null, 2));
 }
 
-function resolveAlias(model: string | undefined, aliases: Record<string, string>): string | undefined {
+function resolveAlias(
+  model: string | undefined,
+  aliases: Record<string, string>,
+): string | undefined {
   if (!model) return model;
   if (model in aliases) {
     return aliases[model];
@@ -63,7 +69,14 @@ function resolveConfigAliases(config: Config): void {
   }
 }
 
-export { ensureConfigFile, readAliases, writeAliases, resolveAlias, resolveConfigAliases, handleAliasCommand };
+export {
+  ensureConfigFile,
+  readAliases,
+  writeAliases,
+  resolveAlias,
+  resolveConfigAliases,
+  handleAliasCommand,
+};
 
 function handleAliasCommand(args: string): string {
   const parts = args.trim().split(/\s+/);
@@ -145,7 +158,11 @@ export const aliasPlugin: Plugin = async ({ client }) => {
     "command.execute.before": async (input, output: any) => {
       if (input.command === "alias") {
         const result = handleAliasCommand(input.arguments);
-        output.parts.splice(0, output.parts.length, { type: "text", text: result, ignored: true });
+        output.parts.splice(0, output.parts.length, {
+          type: "text",
+          text: result,
+          ignored: true,
+        });
       }
     },
   };

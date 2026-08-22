@@ -21,7 +21,6 @@
     "model",
     "alias"
   ],
-  "dependencies": {},
   "devDependencies": {
     "@opencode-ai/plugin": "^1.17.7",
     "@types/jest": "^30.0.0",
